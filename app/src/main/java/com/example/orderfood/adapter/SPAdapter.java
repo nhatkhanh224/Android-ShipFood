@@ -66,10 +66,7 @@ public class SPAdapter extends BaseAdapter {
         final SanPham sanpham=SPList.get(position);
         viewHolder.txtTenSP.setText(sanpham.getTen_sanpham());
         viewHolder.txtMieuTaSP.setText(sanpham.getMieuta());
-
         Picasso.with(context).load(sanpham.getUrl_sp()).placeholder(R.mipmap.ic_launcher).into(viewHolder.imgSP);
-
-
         return convertView;
     }
 }

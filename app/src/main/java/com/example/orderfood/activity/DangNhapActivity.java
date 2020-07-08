@@ -50,7 +50,7 @@ public class DangNhapActivity extends AppCompatActivity {
                 String password=txtPassword.getText().toString().trim();
                 if (!email.isEmpty() || !password.isEmpty())
                 {
-                    onLogin(email,password);
+//                    onLogin(email,password);
                     Intent intent=new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
