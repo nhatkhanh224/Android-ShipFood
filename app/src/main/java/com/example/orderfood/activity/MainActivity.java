@@ -6,10 +6,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -61,12 +63,29 @@ public class MainActivity extends AppCompatActivity {
         ActionBar();
         menuAdapter=new MenuAdapter(this,R.layout.dong_menu,menuArrayList);
         lvMenu.setAdapter(menuAdapter);
+        CatchOnItem();
+    }
+
+    private void CatchOnItem() {
+        lvMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        Intent intent=new Intent(MainActivity.this,MainActivity.class);
+                        startActivity(intent);
+                    case 1:
+                        Intent intent2=new Intent(MainActivity.this,LienHe.class);
+                        startActivity(intent2);
+                }
+            }
+        });
     }
 
     private void ActionBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_gallery);
+        toolbar.setNavigationIcon(R.drawable.ic_drag_handle_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
             mangGioHang=new ArrayList<>();
         }
         menuArrayList=new ArrayList<>();
-        menuArrayList.add(new Menu(0,"Trang chính",R.drawable.food));
+        menuArrayList.add(new Menu(0,"Trang chính",R.drawable.hompage));
+        menuArrayList.add(new Menu(0,"Liên hệ",R.drawable.contact));
 
 
     }

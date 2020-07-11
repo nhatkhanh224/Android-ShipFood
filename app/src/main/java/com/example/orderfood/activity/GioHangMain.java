@@ -36,7 +36,7 @@ public class GioHangMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang_main);
         AnhXa();
-        ActionToolbar();
+//        ActionToolbar();
         CheckData();
         EvenUltil();
         XoaSanPham();
@@ -136,8 +136,6 @@ public class GioHangMain extends AppCompatActivity {
 
     private void ActionToolbar() {
         setSupportActionBar(toolbarGioHang);
-
-
     }
 
     private void setSupportActionBar(Toolbar toolbarGioHang) {
