@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ChiTietFood">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Chi tiết"
+        app:titleTextColor="@android:color/white"
+        android:background="?attr/colorPrimary">>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:id="@+id/imgSPChiTiet"
@@ -14,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033"
+        app:layout_constraintVertical_bias="0.188"
         app:srcCompat="@drawable/food" />
 
     <Button

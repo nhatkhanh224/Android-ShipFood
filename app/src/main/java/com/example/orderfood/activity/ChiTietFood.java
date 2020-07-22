@@ -2,6 +2,8 @@ package com.example.orderfood.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +30,7 @@ public class ChiTietFood extends AppCompatActivity {
     TextView txtTenSP,txtGiaSP;
     Button btnOrder;
     Spinner spinner;
+    private Toolbar toolbar;
     int ID=0;
     int ID_LOAI=0;
     String SanPham="";
@@ -41,7 +44,22 @@ public class ChiTietFood extends AppCompatActivity {
         EventSpinner();
         GetData();
         EventButton();
+        ActionBar();
+
+
     }
+
+    private void ActionBar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
 
     private void EventButton() {
         btnOrder.setOnClickListener(new View.OnClickListener() {
@@ -122,5 +140,6 @@ public class ChiTietFood extends AppCompatActivity {
         txtGiaSP=(TextView) findViewById(R.id.txtGiaSPChiTiet);
         spinner=(Spinner) findViewById(R.id.spinner);
         btnOrder=(Button) findViewById(R.id.btnOrder);
+        toolbar=findViewById(R.id.toolbarChiTiet);
     }
 }

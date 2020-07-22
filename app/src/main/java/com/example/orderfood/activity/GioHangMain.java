@@ -27,21 +27,33 @@ import java.text.DecimalFormat;
 public class GioHangMain extends AppCompatActivity {
     ListView lvGioHang;
     static TextView TongTien;
+    private androidx.appcompat.widget.Toolbar toolbar;
     TextView txtThongBao;
     Button btnThanhToan,btnMuaTiep;
-    Toolbar toolbarGioHang;
+
     GioHangAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang_main);
         AnhXa();
-//        ActionToolbar();
+        Actionbar();
         CheckData();
         EvenUltil();
         XoaSanPham();
         MuaTiep();
         Order();
+    }
+
+    private void Actionbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void Order() {
@@ -134,19 +146,7 @@ public class GioHangMain extends AppCompatActivity {
         TongTien.setText(decimalFormat.format(tongtien)+ "Đ");
     }
 
-    private void ActionToolbar() {
-        setSupportActionBar(toolbarGioHang);
-    }
 
-    private void setSupportActionBar(Toolbar toolbarGioHang) {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbarGioHang.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -170,7 +170,7 @@ public class GioHangMain extends AppCompatActivity {
         TongTien=(TextView) findViewById(R.id.txtTongTien);
         btnThanhToan=(Button) findViewById(R.id.btnMuaHang);
         btnMuaTiep=(Button) findViewById(R.id.btnMuaTiep);
-        toolbarGioHang=(Toolbar) findViewById(R.id.toolbarGioHang);
+        toolbar= findViewById(R.id.toolbarGioHang);
         adapter=new GioHangAdapter(GioHangMain.this,MainActivity.mangGioHang);
         lvGioHang.setAdapter(adapter);
     }

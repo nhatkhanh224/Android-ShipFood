@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:title="Giỏ hàng"
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarGioHang"
-        android:background="#AC1F4F"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Giỏ hàng"
+        app:titleTextColor="@android:color/white"
+        android:background="?attr/colorPrimary">>
+
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:layout_weight="7"
         android:layout_width="match_parent"

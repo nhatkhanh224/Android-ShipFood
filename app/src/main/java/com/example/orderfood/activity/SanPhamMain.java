@@ -1,7 +1,9 @@
 package com.example.orderfood.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +42,7 @@ public class SanPhamMain extends AppCompatActivity {
     ArrayList<SanPham> arraySP;
     ListView lvSP;
     SPAdapter adapter;
+    private Toolbar toolbar;
     int idloai=0;
     int page=1;
     View footerView;
@@ -54,7 +57,20 @@ public class SanPhamMain extends AppCompatActivity {
         GetIdLoaiSP();
         GetData(page);
         LoadMoreData();
+        Actionbar();
     }
+
+    private void Actionbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
     public class mHandler extends Handler{
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -112,6 +128,7 @@ public class SanPhamMain extends AppCompatActivity {
     }
 
     private void AnhXa() {
+        toolbar=findViewById(R.id.toolbarSP);
         lvSP=(ListView) findViewById(R.id.lvGioHang);
         arraySP=new ArrayList<>();
         adapter=new SPAdapter(this,R.layout.sp,arraySP);
