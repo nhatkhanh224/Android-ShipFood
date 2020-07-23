@@ -30,9 +30,9 @@
         android:id="@+id/imageView4"
         android:layout_width="194dp"
         android:layout_height="197dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarLienHe"
         app:srcCompat="@drawable/khanh" />
@@ -87,23 +87,23 @@
 
     <Button
         android:id="@+id/btnFace"
-        android:onClick="facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="36dp"
+        android:background="#4960D6"
+        android:onClick="facebook"
         android:text="facebook"
         android:textColor="#F1F1ED"
-        android:background="#4960D6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="54dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="36dp"
         android:background="#1B1C20"
         android:onClick="github"
         android:text="GITHUB"

@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DangKyActivity extends AppCompatActivity {
-    private TextView txtName,txtPass,txtEmail,txtCoPass;
+    private TextView txtName,txtPass,txtEmail,txtCoPass,txtLogin;
     private Button btnRegis;
     private static String urlRegis="http://192.168.78.2/androidwebservice/orderfood/regis.php";
     @Override
@@ -40,11 +40,19 @@ public class DangKyActivity extends AppCompatActivity {
         txtPass=findViewById(R.id.txtPass);
         txtEmail=findViewById(R.id.txtEmail);
         txtCoPass=findViewById(R.id.txtCoPass);
+        txtLogin=findViewById(R.id.txtLogin);
         btnRegis=findViewById(R.id.btnRegis);
         btnRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Regist();
+            }
+        });
+        txtLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DangKyActivity.this,DangNhapActivity.class);
+                startActivity(intent);
             }
         });
 

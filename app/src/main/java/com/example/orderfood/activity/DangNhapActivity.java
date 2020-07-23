@@ -2,12 +2,12 @@ package com.example.orderfood.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -18,7 +18,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.orderfood.R;
-import com.example.orderfood.model.KhachHang;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +28,8 @@ import java.util.Map;
 
 public class DangNhapActivity extends AppCompatActivity {
     private EditText txtUsername,txtPassword;
-    private Button btnLogin,btnRegis;
+    private TextView txtRegis;
+    private Button btnLogin;
     private static String urlLogin="http://192.168.78.2/androidwebservice/orderfood/login.php";
 
     @Override
@@ -41,8 +41,9 @@ public class DangNhapActivity extends AppCompatActivity {
     private void AnhXa() {
         txtUsername=  findViewById(R.id.txtUsername);
         txtPassword=  findViewById(R.id.txtPassword);
+        txtRegis=findViewById(R.id.txtLogin);
         btnLogin= findViewById(R.id.btnLogin);
-        btnRegis=findViewById(R.id.btnRegis);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +51,7 @@ public class DangNhapActivity extends AppCompatActivity {
                 String password=txtPassword.getText().toString().trim();
                 if (!email.isEmpty() || !password.isEmpty())
                 {
-//                    onLogin(email,password);
+                    onLogin(email,password);
                     Intent intent=new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
@@ -61,7 +62,7 @@ public class DangNhapActivity extends AppCompatActivity {
 
             }
         });
-        btnRegis.setOnClickListener(new View.OnClickListener() {
+        txtRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), DangKyActivity.class);
